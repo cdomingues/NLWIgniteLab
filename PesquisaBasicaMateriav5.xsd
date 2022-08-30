@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="Alerta" type="xs:string"/>
+  <xs:element name="AnoMateria" type="xs:short"/>
+  <xs:element name="ApelidoMateria" type="xs:string"/>
+  <xs:element name="AutorPrincipal">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="CodigoAutor" minOccurs="0"/>
+        <xs:element ref="NomeAutor" minOccurs="0"/>
+        <xs:element ref="SiglaTipoAutor" minOccurs="0"/>
+        <xs:element ref="UfAutor" minOccurs="0"/>
+        <xs:element ref="IndicadorOutrosAutores" minOccurs="0"/>
+        <xs:element ref="IdentificacaoParlamentar" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AutoresPrincipais">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="AutorPrincipal" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Autuacao">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="NumeroAutuacao" minOccurs="0"/>
+        <xs:element ref="Situacao" minOccurs="0"/>
+        <xs:element ref="Local" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Autuacoes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Autuacao" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CodigoAutor" type="xs:short"/>
+  <xs:element name="CodigoComissao" type="xs:string"/>
+  <xs:element name="CodigoLocal" type="xs:short"/>
+  <xs:element name="CodigoMateria" type="xs:int"/>
+  <xs:element name="CodigoNatureza" type="xs:short"/>
+  <xs:element name="CodigoParlamentar" type="xs:short"/>
+  <xs:element name="CodigoSituacao" type="xs:short"/>
+  <xs:element name="DadosBasicosMateria">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="EmentaMateria" minOccurs="0"/>
+        <xs:element ref="ExplicacaoEmentaMateria" minOccurs="0"/>
+        <xs:element ref="ObservacaoMateria" minOccurs="0"/>
+        <xs:element ref="ApelidoMateria" minOccurs="0"/>
+        <xs:element ref="IndexacaoMateria" minOccurs="0"/>
+        <xs:element ref="NumeroRepublicacaoMpv" minOccurs="0"/>
+        <xs:element ref="IdentificacaoComissaoMpv" minOccurs="0"/>
+        <xs:element ref="IndicadorComplementar" minOccurs="0"/>
+        <xs:element ref="DataApresentacao" minOccurs="0"/>
+        <xs:element ref="DataLeitura" minOccurs="0"/>
+        <xs:element ref="SiglaCasaLeitura" minOccurs="0"/>
+        <xs:element ref="NomeCasaLeitura" minOccurs="0"/>
+        <xs:element ref="DataAssinatura" minOccurs="0"/>
+        <xs:element ref="NaturezaMateria" minOccurs="0"/>
+        <xs:element ref="ResultadoMateria" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DataApresentacao" type="xs:date"/>
+  <xs:element name="DataAssinatura" type="xs:date"/>
+  <xs:element name="DataDepreciacao" type="xs:string"/>
+  <xs:element name="DataDesativacaoCompleta" type="xs:string"/>
+  <xs:element name="DataLeitura" type="xs:date"/>
+  <xs:element name="DataLocal" type="xs:date"/>
+  <xs:element name="DataSituacao" type="xs:date"/>
+  <xs:element name="DataVersaoServico" type="xs:string"/>
+  <xs:element name="Descontinuacao">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="DataDepreciacao" minOccurs="0"/>
+        <xs:element ref="DataDesativacaoCompleta" minOccurs="0"/>
+        <xs:element ref="UrlServicoSubstituto" minOccurs="0"/>
+        <xs:element ref="VersaoServicoSubstituto" minOccurs="0"/>
+        <xs:element ref="UrlDocServicoSubstituto" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DescricaoDataSet" type="xs:string"/>
+  <xs:element name="DescricaoIdentificacaoMateria" type="xs:string"/>
+  <xs:element name="DescricaoNatureza" type="xs:string"/>
+  <xs:element name="DescricaoObjetivoProcesso" type="xs:string"/>
+  <xs:element name="DescricaoSituacao" type="xs:string"/>
+  <xs:element name="DescricaoSubtipoMateria" type="xs:string"/>
+  <xs:element name="EmentaMateria" type="xs:string"/>
+  <xs:element name="ExplicacaoEmentaMateria" type="xs:string"/>
+  <xs:element name="FormaTratamento" type="xs:string"/>
+  <xs:element name="IdentificacaoComissaoMpv">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="CodigoComissao" minOccurs="0"/>
+        <xs:element ref="SiglaComissao" minOccurs="0"/>
+        <xs:element ref="NomeComissao" minOccurs="0"/>
+        <xs:element ref="SiglaCasaComissao" minOccurs="0"/>
+        <xs:element ref="NomeCasaComissao" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IdentificacaoMateria">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="CodigoMateria" minOccurs="0"/>
+        <xs:element ref="SiglaCasaIdentificacaoMateria" minOccurs="0"/>
+        <xs:element ref="NomeCasaIdentificacaoMateria" minOccurs="0"/>
+        <xs:element ref="SiglaSubtipoMateria" minOccurs="0"/>
+        <xs:element ref="DescricaoSubtipoMateria" minOccurs="0"/>
+        <xs:element ref="NumeroMateria" minOccurs="0"/>
+        <xs:element ref="AnoMateria" minOccurs="0"/>
+        <xs:element ref="SiglaComissaoRequerimento" minOccurs="0"/>
+        <xs:element ref="DescricaoObjetivoProcesso" minOccurs="0"/>
+        <xs:element ref="DescricaoIdentificacaoMateria" minOccurs="0"/>
+        <xs:element ref="IndicadorTramitando" minOccurs="0"/>
+        <xs:element ref="IdentificacaoProcesso" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IdentificacaoParlamentar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="CodigoParlamentar" minOccurs="0"/>
+        <xs:element ref="NomeParlamentar" minOccurs="0"/>
+        <xs:element ref="NomeCompletoParlamentar" minOccurs="0"/>
+        <xs:element ref="SexoParlamentar" minOccurs="0"/>
+        <xs:element ref="FormaTratamento" minOccurs="0"/>
+        <xs:element ref="UrlFotoParlamentar" minOccurs="0"/>
+        <xs:element ref="UrlPaginaParlamentar" minOccurs="0"/>
+        <xs:element ref="SiglaPartidoParlamentar" minOccurs="0"/>
+        <xs:element ref="UfParlamentar" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IdentificacaoProcesso" type="xs:int"/>
+  <xs:element name="IndexacaoMateria" type="xs:string"/>
+  <xs:element name="IndicadorComplementar" type="xs:string"/>
+  <xs:element name="IndicadorOutrosAutores" type="xs:string"/>
+  <xs:element name="IndicadorTramitando" type="xs:string"/>
+  <xs:element name="Local">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="DataLocal" minOccurs="0"/>
+        <xs:element ref="CodigoLocal" minOccurs="0"/>
+        <xs:element ref="SiglaCasaLocal" minOccurs="0"/>
+        <xs:element ref="NomeCasaLocal" minOccurs="0"/>
+        <xs:element ref="SiglaLocal" minOccurs="0"/>
+        <xs:element ref="NomeLocal" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Materia">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="IdentificacaoMateria" minOccurs="0"/>
+        <xs:element ref="DadosBasicosMateria" minOccurs="0"/>
+        <xs:element ref="AutoresPrincipais" minOccurs="0"/>
+        <xs:element ref="SituacaoAtual" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Materias">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Materia" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Metadados">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Versao" minOccurs="0"/>
+        <xs:element ref="VersaoServico" minOccurs="0"/>
+        <xs:element ref="DataVersaoServico" minOccurs="0"/>
+        <xs:element ref="Descontinuacao" minOccurs="0"/>
+        <xs:element ref="DescricaoDataSet" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NaturezaMateria">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="CodigoNatureza" minOccurs="0"/>
+        <xs:element ref="NomeNatureza" minOccurs="0"/>
+        <xs:element ref="DescricaoNatureza" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NomeAutor" type="xs:string"/>
+  <xs:element name="NomeCasaComissao" type="xs:string"/>
+  <xs:element name="NomeCasaIdentificacaoMateria" type="xs:string"/>
+  <xs:element name="NomeCasaLeitura" type="xs:string"/>
+  <xs:element name="NomeCasaLocal" type="xs:string"/>
+  <xs:element name="NomeComissao" type="xs:string"/>
+  <xs:element name="NomeCompletoParlamentar" type="xs:string"/>
+  <xs:element name="NomeLocal" type="xs:string"/>
+  <xs:element name="NomeNatureza" type="xs:string"/>
+  <xs:element name="NomeParlamentar" type="xs:string"/>
+  <xs:element name="NumeroAutuacao" type="xs:boolean"/>
+  <xs:element name="NumeroMateria" type="xs:string"/>
+  <xs:element name="NumeroRepublicacaoMpv" type="xs:short"/>
+  <xs:element name="ObservacaoMateria" type="xs:string"/>
+  <xs:element name="PesquisaBasicaMateria">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Metadados" minOccurs="0"/>
+        <xs:element ref="Materias" minOccurs="0"/>
+        <xs:element ref="Alerta" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResultadoMateria" type="xs:string"/>
+  <xs:element name="SexoParlamentar" type="xs:string"/>
+  <xs:element name="SiglaCasaComissao" type="xs:string"/>
+  <xs:element name="SiglaCasaIdentificacaoMateria" type="xs:string"/>
+  <xs:element name="SiglaCasaLeitura" type="xs:string"/>
+  <xs:element name="SiglaCasaLocal" type="xs:string"/>
+  <xs:element name="SiglaComissao" type="xs:string"/>
+  <xs:element name="SiglaComissaoRequerimento" type="xs:string"/>
+  <xs:element name="SiglaLocal" type="xs:string"/>
+  <xs:element name="SiglaPartidoParlamentar" type="xs:string"/>
+  <xs:element name="SiglaSituacao" type="xs:string"/>
+  <xs:element name="SiglaSubtipoMateria" type="xs:string"/>
+  <xs:element name="SiglaTipoAutor" type="xs:string"/>
+  <xs:element name="Situacao">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="DataSituacao" minOccurs="0"/>
+        <xs:element ref="CodigoSituacao" minOccurs="0"/>
+        <xs:element ref="SiglaSituacao" minOccurs="0"/>
+        <xs:element ref="DescricaoSituacao" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SituacaoAtual">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Autuacoes"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UfAutor" type="xs:string"/>
+  <xs:element name="UfParlamentar" type="xs:string"/>
+  <xs:element name="UrlDocServicoSubstituto" type="xs:string"/>
+  <xs:element name="UrlFotoParlamentar" type="xs:string"/>
+  <xs:element name="UrlPaginaParlamentar" type="xs:string"/>
+  <xs:element name="UrlServicoSubstituto" type="xs:string"/>
+  <xs:element name="Versao" type="xs:string"/>
+  <xs:element name="VersaoServico" type="xs:byte"/>
+  <xs:element name="VersaoServicoSubstituto" type="xs:string"/>
+</xs:schema>
