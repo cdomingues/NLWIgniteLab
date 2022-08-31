@@ -4,22 +4,20 @@ import { SignOut } from "phosphor-react-native";
 import { Filter } from "../components/Filter";
 import { Button } from "../components/Button";
 import  {Order, OrderProps} from '../components/Order';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {ChatTeardropText} from 'phosphor-react-native';
 import { useNavigation } from "@react-navigation/native";
 import auth from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore';
 import { Alert } from 'react-native';
+import {dateFormat} from '../utils/firestoreDateFormat';
+import { Loading } from "../components/Loading";
 
 export function Home(){
+    const[isLoading, setIsloading] = useState(true); 
     const [statusSelected, setStatusSelected] = useState<'open'|'closed'>('open');
     const {colors} = useTheme();
-    const [orders,setOrders] = useState<OrderProps[]>([
-       { id: '123',
-        patrimony: '123555',
-        when:'29/08/2022',
-        status: 'open'
-    }
-    ])
+    const [orders,setOrders] = useState<OrderProps[]>([]);
     const navigation = useNavigation();
 
     function handleNewOrder(){
@@ -38,6 +36,30 @@ export function Home(){
             return Alert.alert('Sair',"Não foi possível sair")
         })
     }
+
+    useEffect(()=>{
+        setIsloading(true); 
+        const subscriber = firestore()
+        .collection('orders')
+        .where('status','==', statusSelected)
+        .onSnapshot(snapshot=>{
+            const data = snapshot.docs.map(doc =>{
+                const {patrimony, description, status, created_At} = doc.data();
+                return {
+                    id: doc.id,
+                    patrimony,
+                    description,
+                    status,
+                    when: dateFormat(created_At)
+                }
+            })
+            setOrders(data);
+        setIsloading(false);
+        })
+        return subscriber;
+        
+
+    },[statusSelected])
 
     return(
         <VStack flex={1} pb={6} bg={"gray.700"}>
@@ -80,7 +102,9 @@ export function Home(){
                 isActive={statusSelected === 'closed'}
                 />
             </HStack>
-            <FlatList 
+            {
+                isLoading ? <Loading/> :
+                <FlatList 
             data={orders}
             keyExtractor={item => item.id}
             renderItem={({item})=> <Order data={item} onPress={()=>handleOpenDetails(item.id)} />}  
@@ -95,7 +119,7 @@ export function Home(){
                     </Text>
                 </Center>
             )}
-            />
+            />}
             <Button title="Nova solicitação" onPress={handleNewOrder}/>
             </VStack>
 
