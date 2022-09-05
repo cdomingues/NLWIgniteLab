@@ -29,7 +29,8 @@ export function CardDetails({
             
         </HStack>
         {
-            !!description && <Text color ="gray.100" fontSize="md"> {description}</Text>
+            !!description && 
+            <Text color ="gray.100" fontSize="md"> {description}</Text>
         }
         {children}
         {
